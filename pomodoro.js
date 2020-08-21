@@ -1,7 +1,7 @@
 export default function createPomodoro(document) {
     var state = {
-        timer: 10000,
-        break: 5000,
+        timer: 1500000,
+        break: 300000,
         intervalId: null,
         running: false
     };
