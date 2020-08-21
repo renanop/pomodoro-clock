@@ -48,7 +48,7 @@ export default function createPomodoro(document) {
     function reset(interval) {
         clearInterval(interval);
         state.running = false;
-        state.timer = 10000;
+        state.timer = 1500000;
         timerToScreen()
 
         var audio = new Audio('/soundeffects/reset.mp3');
