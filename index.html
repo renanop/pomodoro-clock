@@ -9,24 +9,66 @@
 
 <body>
     <h1>Pomodoro timer</h1>
-    <p id="timer">hello world</p>
+    <p id="timer"></p>
+    <button id="play">play</button>
+    <button id="pause">pause</button>
+    <button id="reset">reset</button>
+
+    <br><br>
+    <label for="time">Focus time:</label>
+    <input type="text" id="time" placeholder="in minutes">
+    <button id="setTime">Set time</button>
+    <br>
+    <label for="break">Break time:</label>
+    <input type="text" id="break" placeholder="in minutes">
+    <button id="setBreak">Set break</button>
+    <p id="currentBreak"></p>
+
+
     <script type="module">
 
         import createPomodoro from './pomodoro.js';
-        const pomodoro = createPomodoro();
 
-        document.getElementById('timer').innerHTML = pomodoro.toString();
+        
+        const pomodoro = createPomodoro(document);
+        console.log(pomodoro);
 
-        var interval = setInterval(() => {
-            pomodoro.decrement();
-            document.getElementById('timer').innerHTML = pomodoro.toString();
+        const timer = document.getElementById('timer');
+        const play = document.getElementById('play');
+        const pause = document.getElementById('pause');
+        const reset = document.getElementById('reset');
+        const setTime = document.getElementById('setTime');
+        const setBreak = document.getElementById('setBreak');
 
-            if (pomodoro.timeIsUp()) {
-                clearInterval(interval);
-                pomodoro.state.timer = 300000;
+
+        pomodoro.timerToScreen();
+        pomodoro.breakToScreen();
+
+
+        play.addEventListener("click", () => {
+            if (!pomodoro.isRunning()) {
+                pomodoro.start();
             }
+        });
 
-        }, 1000);
+        pause.addEventListener("click", () => {
+            pomodoro.pause(pomodoro.getIntervalId());
+        });
+
+        reset.addEventListener("click", () => {
+            pomodoro.reset(pomodoro.getIntervalId());
+        });
+
+        setTime.addEventListener("click", () => {
+            pomodoro.setTimer(document.getElementById("time").value);
+            pomodoro.timerToScreen();
+        });
+
+        setBreak.addEventListener("click", () => {
+            pomodoro.setBreak(document.getElementById("break").value);
+            pomodoro.breakToScreen();
+        });
+
 
 
 
