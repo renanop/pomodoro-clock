@@ -6,12 +6,27 @@ export default function createPomodoro(document) {
         running: false
     };
 
+    function notifyBreak() {
+        var para = document.createElement("p");
+        para.id = 'break-notification';
+        var node = document.createTextNode("Focus session is over! Starting break time!");
+        para.appendChild(node);
+
+        var clockView = document.getElementById('clock-view');
+        clockView.appendChild(para); 
+    }
+
+    function removeBreakNotification() {
+        var para = document.getElementById('break-notification');
+        para.parentNode.removeChild(para);
+    }
+
     function timerToScreen() {
         document.getElementById('timer').innerHTML = toString2(state.timer);
     }
 
     function breakToScreen() {
-        document.getElementById('currentBreak').innerHTML= 'Current break time: ' + toString2(state.break);
+        document.getElementById('currentBreak').innerHTML = 'Current break time: ' + toString2(state.break);
     }
 
     function setBreak(time) {
@@ -35,11 +50,18 @@ export default function createPomodoro(document) {
         state.running = false;
         state.timer = 10000;
         timerToScreen()
+
+        var audio = new Audio('/soundeffects/reset.mp3');
+        audio.play();
+
     }
 
     function pause(interval) {
         clearInterval(interval);
         state.running = false;
+
+        var audio = new Audio('/soundeffects/pause.mp3');
+        audio.play();
     }
 
 
@@ -55,11 +77,20 @@ export default function createPomodoro(document) {
                 state.timer = state.break;
                 timerToScreen();
                 cooldown = false;
+                notifyBreak();
+
+                let audio = new Audio('./soundeffects/stage-clear.mp3');
+                audio.play();
 
             } else if (timeIsUp() && !cooldown) {
                 clearInterval(interval);
                 state.running = false;
                 timerToScreen();
+                removeBreakNotification();
+
+                let audio = new Audio('./soundeffects/break-is-over.mp3');
+                audio.play();
+
             }
 
         }, 1000);

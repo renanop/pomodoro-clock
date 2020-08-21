@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="shortcut icon" href="">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -9,7 +10,9 @@
 
 <body>
     <h1>Pomodoro timer</h1>
-    <p id="timer"></p>
+    <div id="clock-view">
+        <p id="timer"></p>
+    </div>
     <button id="play">play</button>
     <button id="pause">pause</button>
     <button id="reset">reset</button>
@@ -29,7 +32,7 @@
 
         import createPomodoro from './pomodoro.js';
 
-        
+
         const pomodoro = createPomodoro(document);
         console.log(pomodoro);
 
