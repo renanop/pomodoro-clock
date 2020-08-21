@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Pomodoro timer</h1>
+    <p id="timer">hello world</p>
+    <script type="module">
+
+        import createPomodoro from './pomodoro.js';
+        const pomodoro = createPomodoro();
+
+        document.getElementById('timer').innerHTML = pomodoro.toString();
+
+        var interval = setInterval(() => {
+            pomodoro.decrement();
+            document.getElementById('timer').innerHTML = pomodoro.toString();
+
+            if (pomodoro.timeIsUp()) {
+                clearInterval(interval);
+                pomodoro.state.timer = 300000;
+            }
+
+        }, 1000);
+
+
+
+    </script>
+</body>
+
+</html>
