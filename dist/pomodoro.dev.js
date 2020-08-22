@@ -20,7 +20,7 @@ function createPomodoro(document) {
   function notifyBreak() {
     var para = document.createElement("p");
     para.id = 'break-notification';
-    var node = document.createTextNode("\u2606 Focus session is over! Starting break time! \u2606");
+    var node = document.createTextNode("\u2606 Congratulations! Starting break time! \u2606");
     para.appendChild(node);
     var clockView = document.getElementById('clock-view');
     clockView.appendChild(para);
