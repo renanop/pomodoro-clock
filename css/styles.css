@@ -17,10 +17,10 @@ label {
 
 button {
     font-family: 'Open Sans';
-    background-color: #e6e8e6;
-    color: black;
-    border-radius: 5px;
+    background-color:#e6e8e6;
+    border-radius: 10px;
     border-width: 1px;
+    border-color: #e6e8e6;
 
 }
 
@@ -34,8 +34,13 @@ p {
 
 input {
     background-color:#e6e8e6 ;
+    margin-top: 5px;
     border-radius: 5px;
     border-width: 1px;
+    height: 25px;
+    width: 130px;
+    margin-left: 5px;
+    margin-right: 3px;
 }
 #clock-view {
     justify-content: center;
@@ -64,5 +69,11 @@ input {
 }
 
 .set-btn {
+    width: 78px;
+    height: 25px;
+}
+
+.clock-btn {
     width: 80px;
+    height: 25px;
 }
