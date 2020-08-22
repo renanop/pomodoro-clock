@@ -51,7 +51,7 @@ export default function createPomodoro(document) {
         state.timer = 1500000;
         timerToScreen()
 
-        var audio = new Audio('/soundeffects/reset.mp3');
+        let audio = new Audio('/soundeffects/reset.mp3');
         audio.play();
 
     }
@@ -60,7 +60,7 @@ export default function createPomodoro(document) {
         clearInterval(interval);
         state.running = false;
 
-        var audio = new Audio('/soundeffects/pause.mp3');
+        let audio = new Audio('/soundeffects/pause.mp3');
         audio.play();
     }
 
@@ -159,7 +159,9 @@ export default function createPomodoro(document) {
         setTimer,
         setBreak,
         timerToScreen,
-        breakToScreen
+        breakToScreen,
+        reset,
+        pause
     }
 }
 

@@ -2,7 +2,12 @@
 <html lang="en">
 
 <head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Open+Sans&display=swap');
+    </style>
+
     <link rel="shortcut icon" href="">
+    <link rel="stylesheet" href="css/styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -11,22 +16,28 @@
 <body>
     <h1>Pomodoro timer</h1>
     <div id="clock-view">
-        <p>Countdown:</p>
-        <p id="timer"></p>
+        <div id="clock-circle">
+            <p class="clock" id="timer"></p>
+        </div>
     </div>
-    <button id="play">play</button>
-    <button id="pause">pause</button>
-    <button id="reset">reset</button>
+    <section class="grid">
+        <button class="btn" id="play">play</button>
+        <button class="btn" id="pause">pause</button>
+        <button class = "btn" id="reset">reset</button>
 
-    <br><br>
-    <label for="time">Focus time:</label>
-    <input type="text" id="time" placeholder="in minutes">
-    <button id="setTime">Set time</button>
-    <br>
-    <label for="break">Break time:</label>
-    <input type="text" id="break" placeholder="in minutes">
-    <button id="setBreak">Set break</button>
-    <p id="currentBreak"></p>
+        <br><br>
+        <label for="time">Focus time:</label>
+        <input type="text" id="time" placeholder="in minutes">
+        <button class="set-btn" id="setTime">Set time</button>
+        <br>
+        <label for="break">Break time:</label>
+        <input type="text" id="break" placeholder="in minutes">
+        <button class="set-btn" id="setBreak">Set break</button>
+        <p id="currentBreak"></p>
+    </section>
+
+
+
 
 
     <script type="module">

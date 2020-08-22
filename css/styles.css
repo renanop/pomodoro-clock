@@ -1,0 +1,68 @@
+body {
+    background-color: #080708;
+    color: #e6e8e6;
+}
+
+
+h1 {
+    text-align: center;
+    margin-top: 20vh;
+    font-family: 'Architects Daughter';
+    font-size: 36px;
+}
+
+label {
+    font-family: 'Open Sans';
+}
+
+button {
+    font-family: 'Open Sans';
+    background-color: #e6e8e6;
+    color: black;
+    border-radius: 5px;
+    border-width: 1px;
+
+}
+
+button:hover {
+    background-color: #f5cb5c;
+}
+
+p {
+    font-family: 'Open Sans';
+}
+
+input {
+    background-color:#e6e8e6 ;
+    border-radius: 5px;
+    border-width: 1px;
+}
+#clock-view {
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+
+#clock-circle {
+    margin: 0 auto;
+    text-align: center;
+    border-style: solid;
+    border-radius: 100%;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+}
+
+#timer {
+    margin: 0 auto;
+}
+
+.grid {
+    text-align: center;
+    margin: 3vh auto 0;
+}
+
+.set-btn {
+    width: 80px;
+}
